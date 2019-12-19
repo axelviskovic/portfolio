@@ -1,0 +1,300 @@
+body{
+  margin:0;
+  padding:0;
+  font-family: "Niramit", "Arial", sans-serif;
+  font-size: 16px;
+  color: #FFF;
+  font-family: 'Lato', sans-serif;
+  background-color: #000;
+}
+
+header{
+  width : 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  background: url(../images/ocean.png);
+  background-size: cover;
+  cursor: url(../images/curseur.png),pointer;
+  transition: all .6s;
+}
+
+.tipsClic{
+  width : 200px;
+  height: 200px;
+  position: absolute;
+  bottom : 10%;
+  border: 3px solid white;
+  border-radius: 100%;
+  opacity: 0;
+  animation: apparitionTips 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+@keyframes apparitionTips {
+  from{
+    opacity: 0;
+    right : -10%;
+  }
+  to{
+    opacity: .9;
+    right : 7%;
+  }
+}
+
+.axelViskovicContainer{
+  width : 50%;
+  height: 50%;
+  position: absolute;
+  bottom : 30%;
+  left : 5%;
+}
+
+.axelViskovicContainer h1{
+  font-size: 100px;
+  color : white;
+  margin-bottom: 20px;
+  letter-spacing: 10px;
+}
+
+.axelViskovicContainer h2{
+  font-size: 20px;
+  color : white;
+  letter-spacing: 3px;
+}
+
+#logoHetic{
+  width : 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.tabListContainer{
+  position: absolute;
+  top : 10%;
+  right : 0%;
+  width : 30%;
+  height: 60%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  animation: tabListMoving 1.4s;
+  animation-timing-function: ease-in-out;
+}
+
+.tabListContainer a{
+  color : white;
+  text-decoration: none;
+}
+
+.imgAxelContainer{
+  width : 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.imgAxelContainer img{
+  width: 200px;
+  height: 200px;
+}
+
+#portfolioTab,#contactTab a{
+  cursor: pointer;
+  margin: 0px;
+  animation: spacingTab 1.4s;
+  animation-fill-mode: forwards;
+  letter-spacing: 4px;
+}
+#portfolioTab:hover,#contactTab a:hover{
+  transition: all .5s;
+  color : #FDE47F;
+}
+
+@keyframes tabListMoving {
+  0%{
+    top : 105%;
+    opacity: 0;
+  }
+  100%{
+    top : 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes spacingTab {
+  0%{
+    margin : 0px
+  }
+  70%{
+    margin: 0px;
+  }
+  100%{
+    margin : 30px;
+  }
+}
+
+.scrollArrowContainer{
+  position: absolute;
+  bottom : 0%;
+  right : 0%;
+  width : 100%;
+  height: 20%;
+  cursor: pointer;
+}
+
+.arrowContainer{
+  overflow: hidden;
+  position: relative;
+  bottom : 0%;
+  right : 0%;
+  width : 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollArrowBackground{
+  position: absolute;
+  bottom : 102%;
+  right : 0%;
+  width : 100%;
+  height: 100%;
+  background-color: white;
+  opacity: .7;
+  transition: all .4s;
+  z-index: 4;
+  border-radius: 100%;
+}
+
+.arrowContainer h3{
+  font-size: 20px;
+  color : white;
+  z-index: 10;
+  transition: all .4s;
+}
+
+#arrowScroll{
+    width: 50px;
+    height: 50px;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    transform: rotate(-45deg);
+    z-index: 10;
+    transition: all .4s;
+}
+
+
+/* PORTFOLIO */
+
+.portfolioContainer{
+  padding-top: 50px;
+  width : 100%;
+  height: 1700px;
+background:linear-gradient(#06424a,#001315);
+  /* background: url(../images/bg.png);
+  background-size:cover; */
+  cursor: url(../images/curseur.png),pointer;
+}
+
+#titlePortfolio{
+  color : white;
+  font-size: 50px;
+  text-align: center;
+  margin : 0px;
+}
+
+.projectContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project{
+  margin-top : 30px;
+  width : 600px;
+  height: 300px;
+  background-color: red;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgProject{
+  position: absolute;
+  top : 0%;
+  left : -20%;
+  width : auto;
+  height: 430px;
+}
+
+.titleProject{
+  position: absolute;
+  width : 600px;
+  height: 300px;
+  top : 75%;
+  transition: all .4s;
+  background-color: white;
+  opacity: .8;
+}
+
+.titleProject h1, .titleProject h3{
+  margin-left : 10px;
+  color : black;
+}
+
+/* BULLES */
+
+.bubble{
+  width : 20px;
+  height: 20px;
+  border : 1px solid white;
+  border-radius: 100%;
+  position: absolute;
+  animation: bubbleMoving;
+  animation-fill-mode: forwards;
+}
+
+.miniBubble{
+  width : 8px;
+  height: 8px;
+  border : 1px solid white;
+  border-radius: 100%;
+  position: absolute;
+  animation: bubbleMoving;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bubbleMoving {
+  0%{
+    top :;
+  }
+  90%{
+    opacity: .8;
+  }
+  100%{
+    top : 0%;
+    opacity: 0.3;
+  }
+}
+
+
+footer{
+  height: 200px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color : #fff;
+}
