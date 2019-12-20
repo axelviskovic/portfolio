@@ -1,10 +1,9 @@
 body{
   margin:0;
   padding:0;
-  font-family: "Niramit", "Arial", sans-serif;
   font-size: 16px;
   color: #FFF;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lilita', sans-serif;
   background-color: #000;
 }
 
@@ -297,4 +296,19 @@ footer{
   flex-direction: column;
   text-align: center;
   color : #fff;
+}
+
+
+/* TELEPHONE */
+
+@media screen and (max-width: 630px) {
+  .project {
+    width : 500px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .project {
+    width : 400px;
+  }
 }
