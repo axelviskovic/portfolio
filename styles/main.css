@@ -22,7 +22,7 @@ header{
   width : 200px;
   height: 200px;
   position: absolute;
-  bottom : 10%;
+  right : 7%;
   border: 3px solid white;
   border-radius: 100%;
   opacity: 0;
@@ -39,11 +39,11 @@ header{
 @keyframes apparitionTips {
   from{
     opacity: 0;
-    right : -10%;
+    bottom : -10%;
   }
   to{
     opacity: .9;
-    right : 7%;
+    bottom : 7%;
   }
 }
 
@@ -198,7 +198,7 @@ header{
   padding-top: 50px;
   width : 100%;
   height: 1700px;
-background:linear-gradient(#06424a,#001315);
+  background:linear-gradient(#06424a,#000);
   /* background: url(../images/bg.png);
   background-size:cover; */
   cursor: url(../images/curseur.png),pointer;
