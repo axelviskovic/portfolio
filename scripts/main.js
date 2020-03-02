@@ -4,7 +4,6 @@ const arrowScroll=document.querySelector('#arrowScroll')
 const scrollText=document.querySelector('.arrowContainer h3')
 const header=document.querySelector('header')
 const body=document.querySelector('body')
-const tipsClic=document.querySelector('.tipsClic')
 
 
 // TAB LIST
@@ -45,6 +44,8 @@ arrowContainer.addEventListener(
 
 // HEADER SCROLL
 
+const scrollArrowContainer = document.querySelector('.scrollArrowContainer')
+
 window.addEventListener(
   'scroll',
   ()=>{
@@ -53,7 +54,7 @@ window.addEventListener(
   }
 )
 
-arrowScroll.addEventListener(
+scrollArrowContainer.addEventListener(
   'click',
   ()=>{
     window.scroll(0,innerHeight)
@@ -62,10 +63,43 @@ arrowScroll.addEventListener(
 
 // BUBULLES
 
-window.addEventListener(
+header.addEventListener(
+  'mousemove',
+  (event)=>{
+    let random=Math.floor(Math.random()*4)
+    if(random==1){
+      let scrolled=window.scrollY
+      let x = event.clientX;
+      let y = event.clientY;
+      let bubble=document.createElement('bubble')
+      bubble.classList.add('bubble')
+      bubble.style.left=x+'px'
+      bubble.style.top=scrolled+y+'px'
+      bubble.style.animationDuration=2+(scrolled/500)+'s'
+      body.appendChild(bubble)
+      let miniBubbleCreation = setTimeout(miniBubble,100)
+      function miniBubble(){
+        let miniBubble=document.createElement('miniBubble')
+        miniBubble.classList.add('miniBubble')
+        miniBubble.style.left=x+5+'px'
+        miniBubble.style.top=scrolled+y+'px'
+        miniBubble.style.animationDuration=2+(scrolled/500)+'s'
+        body.appendChild(miniBubble)
+        let bubbleDisappearance=setTimeout(disappearance,3000)
+        function disappearance(){
+          bubble.remove()
+          miniBubble.remove()
+        }
+      }
+    }
+  }
+)
+
+const portfolioContainer = document.querySelector('.portfolioContainer')
+
+portfolioContainer.addEventListener(
   'click',
   (event)=>{
-    tipsClic.style.display='none'
     let scrolled=window.scrollY
     let x = event.clientX;
     let y = event.clientY;
