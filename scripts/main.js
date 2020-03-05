@@ -10,26 +10,7 @@ const loader = document.querySelector('.loader')
 window.onload=function()   {
   loader.style.display='none'
 }
-// const imagesLoading = document.querySelectorAll('img')
-// const loader = document.querySelector('.loader')
-//
-// for(i=0;i<imagesLoading.length;i++)
-// {
-//     if(imagesLoading[i].complete)
-//     {
-//         console.log(i)
-//         if(i==imagesLoading.length-1){
-//           loader.style.display='none'
-//         }
-//     }
-//     else
-//     {
-//         imagesLoading[i].addEventListener('load', () =>
-//         {
-//             console.log('c tre bon')
-//         })
-//     }
-// }
+
 
 // TAB LIST
 
