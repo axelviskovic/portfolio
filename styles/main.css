@@ -7,6 +7,14 @@ body{
   background-color: #000;
 }
 
+.loader{
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+  position: absolute;
+  z-index: 1000;
+}
+
 header{
   width : 100vw;
   height: 100vh;
@@ -88,7 +96,7 @@ header{
 }
 
 #logoHetic{
-  width : 300px;
+  width : 200px;
   height: auto;
   margin-bottom: 20px;
 }
@@ -239,6 +247,7 @@ header{
 }
 
 .project{
+  border-radius: 40px;
   margin-top : 30px;
   width : 600px;
   height: 300px;

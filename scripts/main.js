@@ -5,6 +5,24 @@ const scrollText=document.querySelector('.arrowContainer h3')
 const header=document.querySelector('header')
 const body=document.querySelector('body')
 
+const imagesLoading = document.querySelectorAll('img')
+const loader = document.querySelector('.loader')
+
+for(const _element of imagesLoading)
+{
+    if(_element.complete)
+    {
+        console.log('c bon')
+        loader.style.display='none'
+    }
+    else
+    {
+        _element.addEventListener('load', () =>
+        {
+            console.log('c tre bon')
+        })
+    }
+}
 
 // TAB LIST
 
