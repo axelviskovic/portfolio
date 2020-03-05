@@ -8,16 +8,18 @@ const body=document.querySelector('body')
 const imagesLoading = document.querySelectorAll('img')
 const loader = document.querySelector('.loader')
 
-for(const _element of imagesLoading)
+for(i=0;i<imagesLoading.length;i++)
 {
-    if(_element.complete)
+    if(imagesLoading[i].complete)
     {
-        console.log('c bon')
-        loader.style.display='none'
+        console.log(i)
+        if(i==imagesLoading.length-1){
+          loader.style.display='none'
+        }
     }
     else
     {
-        _element.addEventListener('load', () =>
+        imagesLoading[i].addEventListener('load', () =>
         {
             console.log('c tre bon')
         })
