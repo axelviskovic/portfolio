@@ -1,379 +1,415 @@
 body{
+  transition: all 1s ease; 
+  font-family: 'Noto Sans JP', sans-serif;
+  color : white;
   margin:0;
   padding:0;
-  font-size: 16px;
-  color: #FFF;
-  font-family: 'Lilita', sans-serif;
-  background-color: #000;
-  overflow: hidden;
+  width : 100vw;
+  height : 100vh;
+  background-color: #7648FF;
+  overflow-x: hidden;
 }
 
-.loader{
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-color: #06424a;
+html {
+  scroll-behavior: smooth;
+}
+
+.topBar{
+  width : 100%;
+  height : calc(100vw*0.34);
+  background-color: #7648FF;
+  position: relative;
+}
+
+.loadingBar{
+  transition : all .6s ease;
+  opacity : 0;
+  width : 150px;
+  height : 15px;
+  border : 1px solid white;
   position: absolute;
+  top : 60%;
+  left : 10%;
+}
+
+.containerBar{
+  width : 100%;
+  height : 100%;
+  position: relative;
+}
+
+.purpleBar{
+  opacity: 0;
+  width : 100%;
+  height : 100%;
+  position: absolute;
+  background-color: #7648FF;
+  top : 0%;
+  left : 0%;
+}
+
+.barComplete{
+  width : 0%;
+  height : 100%;
+  background-color: white;
+  position: absolute;
+  top : 0%;
+  left : 0%;
+}
+
+
+.title{
+  color : white;
+  width : 650px;
+  font-size: 48px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight : 400;
+  position: absolute;
+  top : 5%;
+  left : 18%;
+}
+
+.backgroundContainer{
+  transition: all 1s ease;
+  background-color: #1D1D1D;
+  width : 60%;
+  height : 66%;
+  position: absolute;
+  bottom : 0px;
+  left : 0px;
+  z-index : 11;
+}
+
+.textPresentation{
+  transition: all .2s ease;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 350;
+  color : white;
+  position: absolute;
+  width : 80%;
+  left : 40%;
+  top : 15%;
+  margin-right : 5%;
+}
+
+#imgAxel{
+  width : 40%;
+  height : auto;
+  position: absolute;
+  top : 34%;
+  right : 0px;
+  z-index : 10;
+}
+
+/* NAV BAR */
+
+.navBar{
+  width : 20%;
+  height : 40%;
+  position: fixed;
+  top : 35%;
+  left : 2%;
+  z-index: 99;
+}
+
+.horizontalNavBar{
+  width : 1px;
+  height : 100%;
+  background-color: white;
+  position: absolute;
+  left : 10%;
+}
+
+.dotContainer{
+  height : 100%;
+  position: absolute;
+  left : 5%;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.dotNavBar{
+  transition : all .4s ease;
+  width : 30px;
+  height : 30px;
+  border-radius: 100%;
+  border : 1px solid white;
+  background-color: #1D1D1D;
+}
+
+.dotNavBar:first-child{
+  background-color: #7648FF;
+}
+
+.textDotContainer{
+  height : 100%;
+  position: absolute;
+  left : 25%;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around; 
+}
+
+.textDot:first-child{
+  font-size : 22px;
+}
+
+.textDot{
+  transition : all .4s ease;
+  color :white;
+  font-size : 16px;
+  cursor : pointer;
+}
+
+
+/* REALISATIONS */
+
+.realisationAllContainer{
+  margin : 250px 50px auto auto;
+  width : 75%;
+  height : auto;
+  display : flex;
+  padding-bottom : 200px;
+  flex-direction: column;
+}
+
+.realisationContainerLeft{
+  width : 90%;
+  height : 300px;
+  display : flex;
+}
+
+.realisationContainerRight{
+  width : 90%;
+  height : 300px;
+  display : flex;
+  margin : 150px 0px 150px auto;
+}
+
+.containerImgReal{
+  width : 40%;
+  height : 100%;
+  position: relative;
+}
+
+.imgReal{
+  transition : all .7s ease;
+  border-radius : 5%;
+  width : 100%;
+  height : 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index : 5;
+}
+
+.imgReal:first-child{
+  z-index: 10;
+}
+
+.imgReal:first-child:hover{
+  opacity : 0;
+}
+
+.txtRealisationContainer{
+  width : 50%;
+  height : 90%;
+  margin : 10px 60px 40px;
+  color : white;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titleRealisationRight{
+  text-align: end;
+}
+
+.paragrapheRight{
+  text-align: end;
+}
+
+
+.button1{
+  width : 140px;
+  height : 40px;
+  background-color: #7648FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  cursor : pointer;
+}
+
+.btnRight{
+  margin : auto 0 auto auto;
+}
+
+
+.button1:hover{
+  transition : all .4s ease;
+  background-color: #916CFF;
+}
+
+/* DETAILS REALISATION */
+
+.detailsRealisationContainer{
+  width : 100%;
+  height : 100%;
+  position: absolute;
+  display : none;
   z-index: 1000;
 }
 
-#canvas{
+.blackDiv{
   position: absolute;
-  top : 49%;
-  left : 49%;
-}
-
-
-
-.bubbleLoader{
-  position: absolute;
-  top : 49%;
-  width: 30px;
-  height: 30px;
-  border : 1px solid white;
-  border-radius: 100%;
-  animation : bubbleBursting 1s infinite;
-  animation-timing-function :cubic-bezier(0.46, 1.07, 1, .76);
-}
-
-.index01{left : 46%;animation-delay: 0s;}
-.index02{left : 49%;animation-delay: .2s;}
-.index03{left : 52%;animation-delay: .4s;}
-
-@keyframes bubbleBursting {
-  0%{
-    top : 49%;
-  }
-  20%{
-    top : 45%;
-  }
-  50%{
-    top : 49%;
-  }
-}
-
-header{
-  width : 100vw;
-  height: 100vh;
-  overflow: hidden;
+  width : 100%;
+  height: 100%;
+  opacity: .6;
+  background-color: black;
   z-index: 1;
-  background: url(../images/ocean.png);
-  background-size: cover;
-  transition: all .6s;
 }
 
-.sunray{
-  opacity: 0;
+.detailsRealisation{
   position: absolute;
-  top : 0%;
-  left : 30%;
-  width : 40%;
-  height: auto;
-  transform-origin: top;
-  animation-duration: 8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-}
-
-.index1{animation-name: sunrayMovingLeft;animation-delay: 0s;animation-direction: normal;}
-.index2{animation-name: sunrayMovingLeft;animation-delay: 2s;animation-direction: alternate;}
-.index3{animation-name: sunrayMovingLeft;animation-delay: 4s;animation-direction: reverse;}
-.index4{animation-name: sunrayMovingRight;animation-delay: 1s;animation-direction: normal;}
-.index5{animation-name: sunrayMovingRight;animation-delay: 3s;animation-direction: reverse;}
-.index6{animation-name: sunrayMovingRight;animation-delay: 5s;animation-direction: normal;}
-
-@keyframes sunrayMovingLeft {
-  0%{
-    opacity: 0;
-    transform:rotate(0deg);
-  }
-  50%{
-    opacity: .7;
-    transform:rotate(50deg);
-  }
-  100%{
-    opacity: .2;
-    transform:rotate(0deg);
-  }
-}
-@keyframes sunrayMovingRight {
-  0%{
-    opacity: 0;
-    transform:rotate(0deg);
-  }
-  50%{
-    opacity: .7;
-    transform:rotate(-50deg);
-  }
-  100%{
-    opacity: .2;
-    transform:rotate(0deg);
-  }
-}
-
-.axelViskovicContainer{
-  width : 50%;
-  height: 50%;
-  position: absolute;
-  bottom : 30%;
-  left : 5%;
-}
-
-.axelViskovicContainer h1{
-  font-size: 100px;
-  color : white;
-  margin-bottom: 20px;
-  letter-spacing: 10px;
-}
-
-.axelViskovicContainer h2{
-  font-size: 20px;
-  color : white;
-  letter-spacing: 3px;
-}
-
-#logoHetic{
-  width : 200px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.tabListContainer{
-  position: absolute;
+  width : 70%;
+  height: 80%;
+  z-index: 10;
+  background-color: #1D1D1D;
   top : 10%;
-  right : 0%;
-  width : 30%;
-  height: 60%;
+  left : 15%;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: center;
-  animation: tabListMoving 1.4s;
-  animation-timing-function: ease-in-out;
 }
 
-.tabListContainer a{
+
+.infosDetails{
+  width : 50%;
+  height : 100%;
+  display : flex;
+  flex-direction: column; 
+  margin : 20px 40px 20px 40px;
+}
+
+.subTitle{
+  margin : 0;
+  font-weight: 500;
+}
+
+p{
+  font-weight: 100;
+}
+
+.centerBtn{
+  margin : 20px auto;
+}
+
+.videoContainer{
+  width : 600px;
+  height : 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.videoDetails{
+  width : auto;
+  height : 100%;
+  position: absolute;
+  left : -40%;
+}
+
+#textVideo{
+  background-color:#7648FF;
+  width : 100%;
+  height : 60px;
+  position: absolute;
+  bottom : 0%;
+  z-index: 10;
+  display : flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#textVideo h3{
+  width: 100%;;
+  text-align: center;
+  font-size : 14px;
+}
+
+.inactive{
+  width : 200px;
+  height : 40px;
+  background-color: #D3D3D3;
+  color : black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  z-index: 5;
+}
+
+.linksContainer{
+  width : 80%;
+  margin : 0 auto;
+  height : 150px;
+  display : flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.linkLogo{
+  width : auto;
+  height : 50%;
+}
+
+.linksContainer a{
+  width : 30%;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#linkText{
+  margin : 0;
+  padding : 0;
+}
+
+a{
   color : white;
   text-decoration: none;
 }
 
-.imgAxelContainer{
-  width : 200px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 100%;
-}
-
-.imgAxelContainer img{
-  width: 200px;
-  height: 200px;
-}
-
-#portfolioTab,#contactTab a,#cv a{
-  cursor: pointer;
-  margin: 0px;
-  animation: spacingTab 1.4s;
-  animation-fill-mode: forwards;
-  letter-spacing: 4px;
-}
-#portfolioTab:hover,#contactTab a:hover,#cv a:hover{
-  transition: all .5s;
-  color : #FDE47F;
-}
-
-@keyframes tabListMoving {
-  0%{
-    top : 105%;
-    opacity: 0;
-  }
-  100%{
-    top : 10%;
-    opacity: 1;
-  }
-}
-
-@keyframes spacingTab {
-  0%{
-    margin : 0px
-  }
-  70%{
-    margin: 0px;
-  }
-  100%{
-    margin : 15px;
-  }
-}
-
-.scrollArrowContainer{
-  position: absolute;
-  bottom : 0%;
-  right : 0%;
-  width : 100%;
-  height: 20%;
-  cursor: pointer;
-}
-
-.arrowContainer{
-  overflow: hidden;
-  position: relative;
-  bottom : 0%;
-  right : 0%;
-  width : 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.scrollArrowBackground{
-  position: absolute;
-  bottom : 102%;
-  right : 0%;
-  width : 100%;
-  height: 100%;
-  background-color: white;
-  opacity: .7;
-  transition: all .4s;
-  z-index: 4;
-  border-radius: 100%;
-}
-
-.arrowContainer h3{
-  font-size: 20px;
-  color : white;
-  z-index: 10;
-  transition: all .4s;
-}
-
-#arrowScroll{
-    width: 50px;
-    height: 50px;
-    border-left: 1px solid white;
-    border-bottom: 1px solid white;
-    transform: rotate(-45deg);
-    z-index: 10;
-    transition: all .4s;
-}
-
-
-/* PORTFOLIO */
-
-.portfolioContainer{
-  padding-top: 50px;
-  width : 100%;
-  height: 1700px;
-  background:linear-gradient(#06424a,#000);
-  /* background: url(../images/bg.png);
-  background-size:cover; */
-  cursor: url(../images/curseur.png),pointer;
-}
-
-#titlePortfolio{
-  color : white;
-  font-size: 50px;
-  text-align: center;
-  margin : 0px;
-}
-
-.projectContainer{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.project{
-  border-radius: 40px;
-  margin-top : 30px;
-  width : 600px;
-  height: 300px;
-  background-color: red;
-  overflow: hidden;
-  position: relative;
-}
-
-.imgProject{
+.closeDetails{
+  width : 40px;
+  height : 40px;
   position: absolute;
   top : 0%;
-  left : -20%;
-  width : auto;
-  height: 430px;
+  right : 0%;
+  z-index: 1000;
+  cursor: pointer;
 }
 
-.titleProject{
-  position: absolute;
+
+/* SLIDER */
+
+.sliderContainer{
   width : 600px;
-  height: 300px;
-  top : 75%;
-  transition: all .4s;
-  background-color: white;
-  opacity: .8;
+  height : 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: red;
 }
 
-.titleProject h1, .titleProject h3{
-  margin-left : 10px;
-  color : black;
-}
-
-/* BULLES */
-
-.bubble{
-  width : 20px;
-  height: 20px;
-  border : 1px solid white;
-  border-radius: 100%;
+.slider{
+  transition : all 1.4s ease;
+  width : 2400px;
+  height : 100%;
+  display : flex;
   position: absolute;
-  animation: bubbleMoving;
-  animation-fill-mode: forwards;
+  top : 0%;
+  left : 0%;
 }
 
-.miniBubble{
-  width : 8px;
-  height: 8px;
-  border : 1px solid white;
-  border-radius: 100%;
-  position: absolute;
-  animation: bubbleMoving;
-  animation-fill-mode: forwards;
-}
-
-@keyframes bubbleMoving {
-  0%{
-    top :;
-  }
-  90%{
-    opacity: .8;
-  }
-  100%{
-    top : 0%;
-    opacity: 0.3;
-  }
-}
-
-
-footer{
-  height: 200px;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color : #fff;
-}
-
-
-/* TELEPHONE */
-
-@media screen and (max-width: 630px) {
-  .project {
-    width : 500px;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .project {
-    width : 400px;
-  }
+.imgSlider{
+  width : 600px;
+  height : auto;
 }

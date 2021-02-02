@@ -1,160 +1,147 @@
-const arrowContainer=document.querySelector('.arrowContainer')
-const scrollArrowBackground=document.querySelector('.scrollArrowBackground')
-const arrowScroll=document.querySelector('#arrowScroll')
-const scrollText=document.querySelector('.arrowContainer h3')
-const header=document.querySelector('header')
-const body=document.querySelector('body')
+const backgroundContainer = document.querySelector('.backgroundContainer')
+const textPresentation = document.querySelector('.textPresentation')
+const body = document.querySelector('body')
+const dotNavBar = document.querySelectorAll('.dotNavBar')
+const textDot = document.querySelectorAll('.textDot')
+const loadingBar = document.querySelector('.loadingBar')
+const barComplete = document.querySelector('.barComplete')
+const purpleBar = document.querySelector('.purpleBar')
 
-const loader = document.querySelector('.loader')
-
-window.onload=function()   {
-  loader.style.display='none'
-  body.style.overflow='visible'
-}
-
-
-// TAB LIST
-
-const portfolioTab=document.querySelector('#portfolioTab')
-const contactTab=document.querySelector('#contactTab')
-
-portfolioTab.addEventListener(
-  'click',
-  ()=>{
-    window.scroll(0,innerHeight)
-  }
-)
-
-
-// ARROW
-
-arrowContainer.addEventListener(
-  'mouseenter',
-  ()=>{
-    scrollArrowBackground.style.bottom='0%'
-    scrollArrowBackground.style.borderRadius='0%'
-    scrollText.style.color='black'
-    arrowScroll.style.borderLeft='1px solid black'
-    arrowScroll.style.borderBottom='1px solid black'
-  }
-)
-arrowContainer.addEventListener(
-  'mouseleave',
-  ()=>{
-    scrollArrowBackground.style.bottom='102%'
-    scrollArrowBackground.style.borderRadius='100%'
-    scrollText.style.color='white'
-    arrowScroll.style.borderLeft='1px solid white'
-    arrowScroll.style.borderBottom='1px solid white'
-  }
-)
-
-// HEADER SCROLL
-
-const scrollArrowContainer = document.querySelector('.scrollArrowContainer')
+maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight
 
 window.addEventListener(
-  'scroll',
-  ()=>{
-    let scrolled=1.2-((window.scrollY)/innerHeight)
-    header.style.opacity=scrolled+0.2
-  }
-)
-
-scrollArrowContainer.addEventListener(
-  'click',
-  ()=>{
-    window.scroll(0,innerHeight)
-  }
-)
-
-// BUBULLES
-
-header.addEventListener(
-  'mousemove',
-  (event)=>{
-    let random=Math.floor(Math.random()*4)
-    if(random==1){
-      let scrolled=window.scrollY
-      let x = event.clientX;
-      let y = event.clientY;
-      let bubble=document.createElement('bubble')
-      bubble.classList.add('bubble')
-      bubble.style.left=x+'px'
-      bubble.style.top=scrolled+y+'px'
-      bubble.style.animationDuration=2+(scrolled/500)+'s'
-      body.appendChild(bubble)
-      let miniBubbleCreation = setTimeout(miniBubble,100)
-      function miniBubble(){
-        let miniBubble=document.createElement('miniBubble')
-        miniBubble.classList.add('miniBubble')
-        miniBubble.style.left=x+5+'px'
-        miniBubble.style.top=scrolled+y+'px'
-        miniBubble.style.animationDuration=2+(scrolled/500)+'s'
-        body.appendChild(miniBubble)
-        let bubbleDisappearance=setTimeout(disappearance,3000)
-        function disappearance(){
-          bubble.remove()
-          miniBubble.remove()
+    'scroll',
+    ()=>{
+        let maxHeight = body.offsetHeight
+        const scrolled = window.scrollY
+        if(scrolled>120){
+        backgroundContainer.style.width="100%"
+        textPresentation.style.top="0%"
+        textPresentation.style.opacity="0"
+        body.style.backgroundColor="#7648FF"
         }
-      }
+        if(scrolled<120){
+            backgroundContainer.style.width="60%"
+            textPresentation.style.top="15%"
+            textPresentation.style.opacity="1"
+            }
+        for(let i=0; i<dotNavBar.length; i++){
+            if(scrolled<120){
+                for(let j=0; j<dotNavBar.length;j++){
+                    dotNavBar[i].style.backgroundColor="#1D1D1D"
+                    textDot[i].style.fontSize="16px"
+                    loadingBar.style.opacity="0"
+                }
+                dotNavBar[0].style.backgroundColor="#7648FF"
+                textDot[0].style.fontSize="22px"
+            }
+            if(scrolled>150){
+                for(let j=0; j<dotNavBar.length;j++){
+                    dotNavBar[i].style.backgroundColor="#1D1D1D"
+                    textDot[i].style.fontSize="16px"
+                    loadingBar.style.opacity="1"
+                    body.style.backgroundColor="#1D1D1D"
+                    barComplete.style.width=100*(scrolled-150)/(maxScroll-150)+"%"
+                    purpleBar.style.width=100*(scrolled-150)/(maxScroll-150)+"%"
+                    purpleBar.style.opacity=(scrolled-150)/(maxScroll-150)
+                }
+                dotNavBar[1].style.backgroundColor="#7648FF"
+                textDot[1].style.fontSize="22px"
+            }
+        }
     }
-  }
 )
 
-const portfolioContainer = document.querySelector('.portfolioContainer')
+const detailsRealisationContainer = document.querySelectorAll('.detailsRealisationContainer')
+const voirPlus = document.querySelectorAll('.voirPlus')
+const closeDetails = document.querySelectorAll('.closeDetails')
+const blackDiv = document.querySelectorAll('.blackDiv')
 
-portfolioContainer.addEventListener(
-  'click',
-  (event)=>{
-    let scrolled=window.scrollY
-    let x = event.clientX;
-    let y = event.clientY;
-    let bubble=document.createElement('bubble')
-    bubble.classList.add('bubble')
-    bubble.style.left=x+'px'
-    bubble.style.top=scrolled+y+'px'
-    bubble.style.animationDuration=2+(scrolled/500)+'s'
-    body.appendChild(bubble)
-    let miniBubbleCreation = setTimeout(miniBubble,100)
-    function miniBubble(){
-      let miniBubble=document.createElement('miniBubble')
-      miniBubble.classList.add('miniBubble')
-      miniBubble.style.left=x+5+'px'
-      miniBubble.style.top=scrolled+y+'px'
-      miniBubble.style.animationDuration=2+(scrolled/500)+'s'
-      body.appendChild(miniBubble)
-      let bubbleDisappearance=setTimeout(disappearance,3000)
-      function disappearance(){
-        bubble.remove()
-        miniBubble.remove()
-      }
+for(let i=0; i<voirPlus.length;i++){
+    voirPlus[i].addEventListener(
+        'click',
+        ()=>{
+            detailsRealisationContainer[i].style.display='block'
+            detailsRealisationContainer[i].style.top=window.scrollY+"px"
+            body.style.overflow='hidden'
+
+            closeDetails[i].addEventListener(
+                'click',
+                ()=>{
+                    detailsRealisationContainer[i].style.display='none'
+                    body.style.overflow='scroll'
+                    body.style.overflowX='hidden'
+                }
+            )
+
+            blackDiv[i].addEventListener(
+                'click',
+                ()=>{
+                    detailsRealisationContainer[i].style.display='none'
+                    body.style.overflow='visible'
+                    body.style.overflowX='hidden'
+                }
+            )
+
+        }
+    )
+}
+
+const slider = document.querySelectorAll('.slider')
+
+for(let i=0;i<slider.length;i++){
+
+    let pos = 0
+    action = setInterval(
+            ()=>{
+                slider[i].style.left = pos*(-600)+"px"
+                pos++
+                if(pos==4){
+                    pos=0
+                }
+            },2400
+        )
+
+}
+
+const video = document.querySelector('.videoDetails')
+
+let playVideo = false
+
+document.addEventListener('keydown', function (e){ // les touches au clavier 
+    if(e.keyCode == 70) { // F
+        if(playVideo == true){
+            video.requestFullscreen()
+        }
     }
-  }
+    if(e.keyCode == 32) { // espace
+        if(playVideo==false){
+            video.play()
+            playVideo = true
+        }
+        else{
+            video.pause()
+            playVideo = false
+        }
+    
+    }
+}
 )
 
-// PROJECT TITLE
+const quiSuisJe = document.querySelector('#quiSuisJe')
+const mesRealisations = document.querySelector('#mesRealisations')
+const contact = document.querySelector('#contact')
 
-const project = document.querySelectorAll('.project')
-const titleProject=document.querySelectorAll('.titleProject')
-
-for(let i=0;i<project.length;i++){
-  project[i].addEventListener(
-    'mouseenter',
+quiSuisJe.addEventListener(
+    'click',
     ()=>{
-      titleProject[i].style.top='0%'
+        window.scrollTo(0, 0);
     }
-  )
-}
-for(let i=0;i<project.length;i++){
-  project[i].addEventListener(
-    'mouseleave',
+)
+
+mesRealisations.addEventListener(
+    'click',
     ()=>{
-      titleProject[i].style.top='75%'
+        window.scrollTo(0, 740);
     }
-  )
-}
-
-
-
-//A
+)
